@@ -5,11 +5,9 @@ if(process.env.NODE_ENV  != "production"){
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-// const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-// const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 // const { listingSchema, reviewSchema } = require("./schema.js");
 // const Review = require("./models/review.js");
@@ -73,10 +71,10 @@ const sessionOptions = {
   },
 };
 
-// // Home route
-// app.get("/", (req, res) => {
-//   res.send("Hi, I am root");
-// });
+// Home route
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 
 
 app.use(session(sessionOptions));
